@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title slot="start">
+      <span>EPIMS</span>
+    </ion-title>
+
+    <ion-buttons>
+      <ion-button>
+        Home
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>電子部品カテゴリ</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <ion-grid>
+      <ng-container *ngFor="let categoryCard of this.categoryObserver | async">
+        <app-category-card [model]="categoryCard"></app-category-card>
+      </ng-container>
+    </ion-grid>
+  </div>
+</ion-content>
