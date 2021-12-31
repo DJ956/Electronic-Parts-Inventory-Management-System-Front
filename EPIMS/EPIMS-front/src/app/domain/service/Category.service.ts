@@ -30,11 +30,14 @@ export class CategoryService {
         return new Promise((resolve, rejects) => {
             this.repository.getAllCategory().subscribe(
                 (response) => {
-                    if (response.ReturnCode == AppProperty.SUCCESS_CODE) {
+                    console.log(response);
+                    if (response.ReturnCode === AppProperty.SUCCESS_CODE) {
                         this.categoryOriginList = [];
-                        response.List.forEach(data => {
+
+                        response.CategoryDatas.forEach(data => {
                             let model: CategoryModel = new CategoryModel(data);
                             this.categoryOriginList.push(model);
+
                         });
                         this.nextCategoryList();
                     }
@@ -68,5 +71,6 @@ export class CategoryService {
 
     private nextCategoryList() {
         this.categorySubject.next(this.categoryOriginList);
+        console.log(this.categoryOriginList);
     }
 }

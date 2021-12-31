@@ -10,7 +10,7 @@ import { CategoryService } from 'src/app/domain/service/Category.service';
 })
 export class HomePage implements OnInit {
 
-  private categoryList: CategoryModel[];
+  categoryList: CategoryModel[];
   public categoryObserver: Observable<CategoryModel[]>;
 
   constructor(private categoryService: CategoryService) {

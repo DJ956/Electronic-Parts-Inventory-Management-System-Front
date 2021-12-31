@@ -13,7 +13,14 @@ export class CategoryCardComponent implements OnInit {
    */
   @Input() model: CategoryModel;
 
-  constructor() { }
+  /**
+   * カテゴリの数
+   */
+  @Input() categoryCount: number;
+
+  constructor() {
+    this.categoryCount = 0;
+  }
 
   ngOnInit() { }
 
