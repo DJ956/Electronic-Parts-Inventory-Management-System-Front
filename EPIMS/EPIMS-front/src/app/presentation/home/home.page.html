@@ -13,18 +13,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-header>
     <ion-toolbar>
       <ion-title>電子部品カテゴリ</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <ion-grid>
+  <ion-grid>
+    <ion-row>
       <ng-container *ngFor="let categoryCard of this.categoryObserver | async">
-        <app-category-card [model]="categoryCard"></app-category-card>
+        <app-category-card [model]="categoryCard" [categoryCount]="12"></app-category-card>
       </ng-container>
-    </ion-grid>
-  </div>
+    </ion-row>
+
+  </ion-grid>
+
 </ion-content>

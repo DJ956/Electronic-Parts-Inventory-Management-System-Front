@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoryModel } from 'src/app/domain/model/resource/model/Category.model';
 
 @Component({
@@ -18,10 +19,17 @@ export class CategoryCardComponent implements OnInit {
    */
   @Input() categoryCount: number;
 
-  constructor() {
+  constructor(private router: Router) {
     this.categoryCount = 0;
   }
 
   ngOnInit() { }
+
+  /**
+   * カテゴリーを検索条件に製品ページに移動
+   */
+  onClickBtn() {
+
+  }
 
 }

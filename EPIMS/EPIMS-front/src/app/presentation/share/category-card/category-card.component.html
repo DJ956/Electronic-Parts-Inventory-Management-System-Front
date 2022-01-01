@@ -1,5 +1,15 @@
-<div>
-  <ion-img [src]="this.model?.CategoryImagePath">
-  </ion-img>
-  <ion-text>{{this.model?.CategoryName}}</ion-text>
-</div>
+<ion-card>
+  <div class="count-root">
+    <ion-badge color="danger">{{this.categoryCount}}</ion-badge>
+  </div>
+
+  <ion-img src="../../../../assets/ic.jpg"></ion-img>
+  <ion-card-header>
+    <ion-card-title>
+      <ion-button expand="full" (click)="onClickBtn()">
+        {{this.model?.CategoryName}}
+      </ion-button>
+
+    </ion-card-title>
+  </ion-card-header>
+</ion-card>

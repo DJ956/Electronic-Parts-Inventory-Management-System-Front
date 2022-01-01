@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CategoryRepository } from './domain/repository/CategoryRepository/Category.repository';
 import { CategoryImplRepository } from './infra/repository/CategoryRepository/CategoryImpl.repository';
+import { ProductRepository } from './domain/repository/ProductRepository/Product.repository';
+import { ProductImplRepository } from './infra/repository/ProductRepository/ProductImpl.repository';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,7 @@ import { CategoryImplRepository } from './infra/repository/CategoryRepository/Ca
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: CategoryRepository, useClass: CategoryImplRepository },
+    { provide: ProductRepository, useClass: ProductImplRepository },
   ],
   bootstrap: [AppComponent],
 })
