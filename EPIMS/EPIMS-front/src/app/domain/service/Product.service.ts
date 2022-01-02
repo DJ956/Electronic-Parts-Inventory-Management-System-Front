@@ -20,6 +20,10 @@ export class ProductService {
         this.productListObserver = this.productSubject.asObservable();
     }
 
+    /**
+     * 全ての製品を取得する
+     * @returns 
+     */
     public async GetAllProduct(): Promise<GetProductListResponse> {
         return new Promise((resolve, rejects) => {
             this.repository.GetAllProduct().subscribe(
@@ -28,8 +32,30 @@ export class ProductService {
                         this.productListOriginal = [];
 
                         response.ProductModelList.forEach(p => {
-                            let model = new ProductModel(p);
-                            this.productListOriginal.push(model);
+                            this.productListOriginal.push(new ProductModel(p));
+                        });
+                        this.nextProductList();
+                    }
+                    resolve(response);
+                }, (error) => {
+                    rejects(error);
+                });
+        });
+    }
+
+    /**
+     * カテゴリ番号と一致する製品を取得する
+     * @param categoryNo カテゴリ番号
+     * @returns 
+     */
+    public async GetProductListByCategoryNo(categoryNo: number): Promise<GetProductListResponse> {
+        return new Promise((resolve, rejects) => {
+            this.repository.GetProductListByCategory(categoryNo).subscribe(
+                (response) => {
+                    if (response.ReturnCode === AppProperty.SUCCESS_CODE) {
+                        this.productListOriginal = [];
+                        response.ProductModelList.forEach(p => {
+                            this.productListOriginal.push(new ProductModel(p));
                         });
                         this.nextProductList();
                     }

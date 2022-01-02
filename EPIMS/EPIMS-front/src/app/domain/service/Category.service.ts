@@ -59,7 +59,7 @@ export class CategoryService {
                 (response) => {
                     let model: CategoryModel = undefined;
                     if (response.ReturnCode === AppProperty.SUCCESS_CODE) {
-                        model = new CategoryModel(response.Category);
+                        model = new CategoryModel(response.CategoryData);
                     }
                     resolve(model);
                 }, (error) => {

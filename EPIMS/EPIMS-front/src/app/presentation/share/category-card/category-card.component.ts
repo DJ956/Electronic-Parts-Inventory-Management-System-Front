@@ -29,7 +29,7 @@ export class CategoryCardComponent implements OnInit {
    * カテゴリーを検索条件に製品ページに移動
    */
   onClickBtn() {
-
+    this.router.navigate(['product-view'], { queryParams: { categoryNo: this.model.CategoryNo } });
   }
 
 }

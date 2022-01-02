@@ -2,10 +2,7 @@ import { CategoryData } from "../data/Category.data";
 
 export class CategoryModel {
 
-    constructor(private data: CategoryData) {
-
-    }
-
+    constructor(private data: CategoryData) { }
 
     public get CategoryNo(): number {
         return this.data.CategoryNo;

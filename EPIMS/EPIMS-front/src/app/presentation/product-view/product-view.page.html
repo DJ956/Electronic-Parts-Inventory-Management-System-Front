@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title slot="start">
+      <span>EPIMS</span>
+    </ion-title>
+
+    <ion-buttons>
+      <ion-button>
+        Home
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        カテゴリー:{{this.category?.CategoryName}}
+        <ion-badge color="danger">{{this.productList.length}}</ion-badge>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <!-- リスト -->
+      <ion-col size="7">
+        <ion-row>
+          <ng-container *ngFor="let product of this.productListObserver | async">
+            <app-product-card [product]="product" (click)="onClickProductCard(product)"></app-product-card>
+          </ng-container>
+        </ion-row>
+      </ion-col>
+
+      <!-- 詳細 -->
+      <ion-col size="5">
+        <app-product-info [product]="this.selectedProduct"> </app-product-info>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

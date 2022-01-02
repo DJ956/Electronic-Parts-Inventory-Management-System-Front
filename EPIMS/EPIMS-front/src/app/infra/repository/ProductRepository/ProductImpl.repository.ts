@@ -23,7 +23,7 @@ export class ProductImplRepository extends ProductRepository {
         return this.client.get<GetProductListResponse>(`${APIUrl.BASE_URL}/product/all`);
     }
     GetProductListByCategory(categoryNo: number): Observable<GetProductListResponse> {
-        return this.client.get<GetProductListResponse>(`${APIUrl.BASE_URL}/product/categoeyNo/${categoryNo}`);
+        return this.client.get<GetProductListResponse>(`${APIUrl.BASE_URL}/product/categoryNo/${categoryNo}`);
     }
 
 }
