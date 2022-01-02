@@ -1,4 +1,5 @@
 import { ProductData } from "../data/Product.data";
+import { ProductImageData } from "../data/ProductImage.data";
 
 export class ProductModel {
     constructor(private data: ProductData) {
@@ -12,5 +13,7 @@ export class ProductModel {
 
     public get CategoryNo(): number { return this.data.CategoryNo; }
     public get CategoryName(): string { return this.data.CategoryData.CategoryName; }
+
+    public get ImagePathList(): ProductImageData[] { return this.data.ImageDatas; }
 
 }

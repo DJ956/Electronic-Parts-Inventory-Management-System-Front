@@ -1,4 +1,5 @@
 import { CategoryData } from "../data/Category.data";
+import { ProductImageData } from "./ProductImage.data";
 
 export interface ProductData {
     /**
@@ -35,4 +36,9 @@ export interface ProductData {
      * カテゴリー
      */
     CategoryData: CategoryData;
+
+    /**
+     * 製品画像リスト
+     */
+    ImageDatas: ProductImageData[];
 }

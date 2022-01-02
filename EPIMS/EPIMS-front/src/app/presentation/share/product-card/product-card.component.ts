@@ -12,6 +12,12 @@ export class ProductCardComponent implements OnInit {
 
   @Input() product: ProductModel;
 
+
+  getImageData(): string {
+    if (this.product.ImagePathList.length === 0) { return ""; }
+    return "data:image/jpg;base64," + this.product.ImagePathList[0].ImagePath;
+  }
+
   ngOnInit() { }
 
 }

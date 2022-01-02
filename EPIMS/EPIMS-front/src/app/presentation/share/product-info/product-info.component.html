@@ -10,25 +10,9 @@
 
   <!-- カルーセル -->
   <ion-slides>
-    <ion-slide>
+    <ion-slide *ngFor="let imgData of this.product?.ImagePathList">
       <div class="slide">
-        <img src="../../../assets/ic.jpg">
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="slide">
-        <img src="../../../assets/ic.jpg">
-      </div>
-    </ion-slide>
-    <ion-slide>
-      <div class="slide">
-        <img src="../../../assets/ic.jpg">
-      </div>
-    </ion-slide>
-
-    <ion-slide>
-      <div class="slide">
-        <img src="../../../assets/ic.jpg">
+        <img src="data:image/jpg;base64,{{imgData.ImagePath}}">
       </div>
     </ion-slide>
   </ion-slides>
