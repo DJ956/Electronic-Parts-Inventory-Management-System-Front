@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'product-view',
     loadChildren: () => import('./presentation/product-view/product-view.module').then(m => m.ProductViewPageModule)
   },
+  {
+    path: 'registry-product',
+    loadChildren: () => import('./presentation/registry-product/registry-product.module').then(m => m.RegistryProductPageModule)
+  },
 ];
 
 @NgModule({

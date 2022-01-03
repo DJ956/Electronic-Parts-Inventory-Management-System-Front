@@ -1,0 +1,51 @@
+.area {
+    width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #333;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+#dropZone {
+    border: 2px dashed #bbb;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 50px;
+    text-align: center;
+    font: 21pt bold arial;
+    color: #bbb;
+}
+
+.drop-file-over {
+    background: #333;
+}
+
+.img-wrap {
+    position: relative;
+}
+
+.img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+}
+
+.img-wrap .next {
+    position: absolute;
+    top: 100px;
+    right: 2px;
+    z-index: 100;
+}
+
+.img-wrap .back {
+    position: absolute;
+    top: 100px;
+    left: 2px;
+    z-index: 100;
+}

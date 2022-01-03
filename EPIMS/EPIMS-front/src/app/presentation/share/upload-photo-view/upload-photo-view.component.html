@@ -1,0 +1,35 @@
+<input type="file" accept="image/*" (change)="onChangeImageInput($event)" #fileUploader hidden>
+
+<!-- 初期 -->
+<ng-container *ngIf="this.imageList.length ===0">
+  <div class="area">
+    <div id="dropZone" (click)="fileUploader.click()">製品画像をアップロード</div>
+  </div>
+</ng-container>
+
+<!-- 画像追加後 -->
+<ng-container *ngIf="this.imageList.length !== 0">
+  <!-- 画像数 -->
+  <div>
+    <ion-badge style="font-size: large;" color="secondary">{{this.imageList.length}}</ion-badge>
+  </div>
+
+  <ion-slides #slides>
+    <ion-slide *ngFor="let data of this.imageList; let i = index;">
+      <div class="slide">
+        <div class="img-wrap">
+          <!-- 削除 -->
+          <ion-icon class="close" size="large" color="danger" name="close-circle-outline" (click)="onClickDelImg(i)">
+          </ion-icon>
+
+          <ion-icon class="back" size="large" color="light" name="chevron-back-outline" (click)="slides.slidePrev()">
+          </ion-icon>
+          <ion-icon class="next" size="large" color="light" name="chevron-forward-outline" (click)="slides.slideNext()">
+          </ion-icon>
+
+          <img src="{{data}}" (click)="fileUploader.click()">
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ng-container>

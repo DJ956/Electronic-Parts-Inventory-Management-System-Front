@@ -20,6 +20,9 @@
         カテゴリー:{{this.category?.CategoryName}}
         <ion-badge color="danger">{{this.productList.length}}</ion-badge>
       </ion-title>
+
+      <ion-button color="success" slot="end" (click)="onClickRegistryProductBtn()">新規製品登録</ion-button>
+
     </ion-toolbar>
   </ion-header>
 

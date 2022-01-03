@@ -12,7 +12,9 @@ import { ProductRepository } from './domain/repository/ProductRepository/Product
 import { ProductImplRepository } from './infra/repository/ProductRepository/ProductImpl.repository';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   entryComponents: [],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { CategoryModel } from 'src/app/domain/model/resource/model/Category.model';
@@ -20,7 +20,8 @@ export class ProductViewPage implements OnInit {
   /**選択済み製品 */
   selectedProduct: ProductModel;
 
-  constructor(private router: ActivatedRoute,
+  constructor(private activeRouter: ActivatedRoute,
+    private router: Router,
     private alertCtrl: AlertController,
     private categoryService: CategoryService,
     private productService: ProductService) {
@@ -37,7 +38,7 @@ export class ProductViewPage implements OnInit {
   async ngOnInit() {
     //カテゴリー番号取得
     let categoryNo: number;
-    this.router.queryParams.subscribe(params => {
+    this.activeRouter.queryParams.subscribe(params => {
       if (params.categoryNo !== undefined) {
         categoryNo = params.categoryNo;
       }
@@ -64,6 +65,13 @@ export class ProductViewPage implements OnInit {
    */
   onClickProductCard(product: ProductModel) {
     this.selectedProduct = product;
+  }
+
+  /**
+   * 新規製品登録画面に移動
+   */
+  onClickRegistryProductBtn() {
+    this.router.navigate(['registry-product'], { queryParams: { categoryNo: this.category.CategoryNo } });
   }
 
 }

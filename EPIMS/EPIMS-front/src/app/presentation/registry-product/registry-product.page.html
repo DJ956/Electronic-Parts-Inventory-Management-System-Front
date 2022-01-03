@@ -1,0 +1,123 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title slot="start">
+      <span>EPIMS</span>
+    </ion-title>
+
+    <ion-buttons>
+      <ion-button>
+        Home
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      新規製品登録
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <!-- 写真追加 -->
+    <app-upload-photo-view (uploadImageEmitter)="onUploadProductImage($event)"></app-upload-photo-view>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked" color="danger">製品名</ion-label>
+          <ion-input type="text" required="true" placeholder="製品名(必須)"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked" color="danger">型番</ion-label>
+          <ion-input type="text" required="true" placeholder="型番(必須)"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">通販コード</ion-label>
+          <ion-input type="text" placeholder="通販コード"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col style="display: flex; align-items: center;">
+        <ion-button color="secondary">検索</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">メーカー</ion-label>
+          <ion-input type="text" autocomplete="true" placeholder="メーカー"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked" color="danger">カテゴリー</ion-label>
+          <ion-select>
+            <ion-select-option>カテゴリー1</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked" color="danger">個数名</ion-label>
+          <ion-input type="text" required="true" autocomplete="true" placeholder="個数名(必須)"></ion-input>
+        </ion-item>
+      </ion-col>
+
+      <ion-col>
+        <ion-item>
+          <ion-label position="stacked">金額</ion-label>
+          <ion-input type="number" placeholder="金額￥"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-item style="width: 100%;">
+        <ion-label position="stacked">データシート</ion-label>
+        <ion-row style="width: 100%;">
+          <ion-input type="text" readonly="true"></ion-input>
+          <ion-button color="medium">参照</ion-button>
+        </ion-row>
+      </ion-item>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-item style="width: 100%;">
+        <ion-label position="stacked">仕様</ion-label>
+        <ion-textarea cols="8" rows="3"></ion-textarea>
+      </ion-item>
+    </ion-row>
+
+    <ion-row style="display: flex; justify-content: end;">
+      <ion-button size="large">登録</ion-button>
+    </ion-row>
+
+  </ion-grid>
+
+
+
+
+</ion-content>

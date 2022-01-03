@@ -3,7 +3,6 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { AppProperty } from "src/app/consts/AppProperty.consts";
 import { CategoryModel } from "../model/resource/model/Category.model";
 import { GetAllCategoryResponse } from "../model/response/GetAllCategory.response";
-import { GetCategoryResponse } from "../model/response/GetCategory.response";
 import { CategoryRepository } from "../repository/CategoryRepository/Category.repository";
 
 @Injectable({
@@ -30,14 +29,12 @@ export class CategoryService {
         return new Promise((resolve, rejects) => {
             this.repository.getAllCategory().subscribe(
                 (response) => {
-                    console.log(response);
                     if (response.ReturnCode === AppProperty.SUCCESS_CODE) {
                         this.categoryOriginList = [];
 
                         response.CategoryDatas.forEach(data => {
                             let model: CategoryModel = new CategoryModel(data);
                             this.categoryOriginList.push(model);
-
                         });
                         this.nextCategoryList();
                     }
@@ -71,6 +68,5 @@ export class CategoryService {
 
     private nextCategoryList() {
         this.categorySubject.next(this.categoryOriginList);
-        console.log(this.categoryOriginList);
     }
 }
