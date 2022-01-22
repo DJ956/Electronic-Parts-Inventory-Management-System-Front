@@ -1,0 +1,18 @@
+{
+    "ReturnCode": 0,
+    "Message": "",
+    "CategoryDatas": [
+        {
+            "CategoryNo": 1,
+            "CategoryName": "Test"
+        },
+        {
+            "CategoryNo": 2,
+            "CategoryName": "Test2"
+        },
+        {
+            "CategoryNo": 3,
+            "CategoryName": "Test3"
+        }
+    ]
+}

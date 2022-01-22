@@ -10,6 +10,7 @@ import { CategoryRepository } from './domain/repository/CategoryRepository/Categ
 import { CategoryImplRepository } from './infra/repository/CategoryRepository/CategoryImpl.repository';
 import { ProductRepository } from './domain/repository/ProductRepository/Product.repository';
 import { ProductImplRepository } from './infra/repository/ProductRepository/ProductImpl.repository';
+import { MockCategoryRepository } from './infra/repository/CategoryRepository/MockCategory.repository';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,9 @@ import { ProductImplRepository } from './infra/repository/ProductRepository/Prod
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: CategoryRepository, useClass: CategoryImplRepository },
     { provide: ProductRepository, useClass: ProductImplRepository },
+
+    { provide: CategoryRepository, useClass: MockCategoryRepository },
+
   ],
   bootstrap: [AppComponent],
 })
